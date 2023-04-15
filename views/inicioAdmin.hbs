@@ -1,0 +1,24 @@
+<a href="/productos/crearproducto">Crear un producto</a>
+
+<div>
+    <table>
+        <tr> 
+            <th>nombre</th><th>precio</th> 
+    {{#each productos}}
+        <tr>
+            <td>{{this.nombre}}</td>
+            <td>{{this.precio}}</td>
+            <form action="/api/agregaralcarrito/{{this._id}}" method="post">
+            <td><input type="submit" value="agregar al carrito"></td>
+            </form>
+            <form action="/productos/actualizarproducto/{{this._id}}" method="get">
+            <td><button>editar</button></td>
+            </form>
+            <form action="/productos/{{this._id}}" method="post">
+            <td><button>eliminar</button></td>
+            </form>
+        </tr>    
+    {{/each}} 
+        </tr> 
+    </table>
+</div>  
